@@ -10,12 +10,6 @@ var player = require("play-sound")((opts = {}));
 var audio = undefined;
 
 router.get('/', function(req, res, next) {
-
-  if (!isAlarmActive) {
-    res.send(false);
-    return;
-  }
-
   if (Date.now() - timestamp > 20000) {
     alarm = false;
   }
@@ -23,6 +17,12 @@ router.get('/', function(req, res, next) {
 });
 
 router.post('/on', function (req, res, next) {
+
+  if (!isAlarmActive) {
+    res.send(false);
+    return;
+  }
+
   alarm = true;
   timestamp = Date.now();
   audio = player.play('./public/sounds/' + chosenSound, function(err) {

@@ -79,6 +79,11 @@ router.post('/on', function (req, res, next) {
   
   alarm = true;
   timestamp = Date.now();
+
+  if (audio) {
+    audio.kill();
+  }
+
   audio = player.play('./public/sounds/' + chosenSound, function(err) {
     if (err && !err.killed) throw err;
   });

@@ -5,6 +5,7 @@ import styles from './Common.module.css';
 
 export const AlarmStatus = ({
 	                            status,
+	                            sysStatus,
 	                            setStatus
                             }) => (
 	<div>
@@ -15,7 +16,7 @@ export const AlarmStatus = ({
 			             mobile={8}>
 				<Segment compact className={[styles.statusLabel, styles.appStatus].join(' ')}>
 					<div>
-						System Status
+						Alarm Status
 					</div>
 				</Segment>
 			</Grid.Column>
@@ -23,11 +24,11 @@ export const AlarmStatus = ({
 			             tablet={6}
 			             mobile={8}>
 				<Segment compact className={styles.appStatus}>
-					<Checkbox toggle
-					          checked={status}
-					          label={status ? "ON" : "OFF"}
-					          onChange={setStatus}
-					/>
+					<Button circular
+					        color={sysStatus? status ? "red" : "green" : "grey"}
+					        disabled={!sysStatus}
+					        icon={status ? "alarm" : "alarm mute"}
+					        onClick={setStatus}/>
 				</Segment>
 			</Grid.Column>
 			

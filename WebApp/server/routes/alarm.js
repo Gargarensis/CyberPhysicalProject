@@ -46,6 +46,15 @@ router.post('/disable', function (req, res, next) {
   res.send("Ok");
 });
 
+router.post("/enable", function(req, res, next) {
+  isAlarmActive = true;
+  res.send("Ok");
+});
+
+router.getst("/enabled", function(req, res, next) {
+  res.send(isAlarmActive);
+});
+
 router.get('/sounds', function (req, res, next) {
   fs.readdir('./public/sounds', (err, files) => {
     res.send(files);

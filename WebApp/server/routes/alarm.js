@@ -7,7 +7,7 @@ var isAlarmActive = true;
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
-  
+
   if (isAlarmActive) {
     res.send(false);
     return;
@@ -30,7 +30,7 @@ router.post('/off', function (req, res, next) {
   res.send("Ok");
 });
 
-router.post('/turn-off', function (req, res, next) {
+router.post('/disable', function (req, res, next) {
   isAlarmActive = false;
   res.send("Ok");
 });

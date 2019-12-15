@@ -52,9 +52,11 @@ router.get('/sounds', function (req, res, next) {
   });
 });
 
+router.get("/sound", function(req, res, next) {
+  res.send(chosenSound);
+});
+
 router.post("/sound", function(req, res, next) {
-  console.log(req.body.fileName);
-  console.log(req.body)
   chosenSound = req.body.fileName;
   res.send("Ok");
 });

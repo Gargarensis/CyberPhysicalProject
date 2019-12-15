@@ -51,17 +51,21 @@ router.post('/on', function (req, res, next) {
     return;
   }
 
-  for (let id of botUserList) {
-    bot.sendMessage(
-      id,
-      "Intrusion detected! At " +
-        new Date()
-          .toISOString()
-          .replace(/T/, " ")
-          .replace(/\..+/, "")
-    );
+  let isManual = req.body.isManual;
+  
+  if (isManual != true) {
+    for (let id of botUserList) {
+      bot.sendMessage(
+        id,
+        "Intrusion detected! At " +
+          new Date()
+            .toISOString()
+            .replace(/T/, " ")
+            .replace(/\..+/, "")
+      );
+    }
   }
-
+  
   alarm = true;
   timestamp = Date.now();
   audio = player.play('./public/sounds/' + chosenSound, function(err) {

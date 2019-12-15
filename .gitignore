@@ -35,5 +35,5 @@ WebApp/server/node_modules/*
 
 .DS_Store
 
-WebApp/token.txt
+WebApp/server/token.txt
 .idea

@@ -1,6 +1,9 @@
 var express = require('express');
 var router = express.Router();
 var fs = require('fs');
+var TelegramBot = require("node-telegram-bot-api");
+var path = require("path");
+
 
 var alarm = false;
 var timestamp = Date.now();
@@ -8,9 +11,7 @@ var isAlarmActive = true;
 var chosenSound = "cane.mp3";
 var player = require("play-sound")((opts = {}));
 var audio = undefined;
-var TelegramBot = require("node-telegram-bot-api");
-var fs = require("fs");
-var path = require("path");
+var isDayEnabled = true;
 
 var token;
 var botUserList = [];
@@ -51,6 +52,16 @@ router.post('/on', function (req, res, next) {
     return;
   }
 
+  let currentDate = new Date();
+  currentDate.setTime(currentDate.getTime() + 60 * 60 * 1000);
+
+  if (!isDayEnabled) {
+    if (currentDate.getHours() >= 8 && currentDate.getHours() <= 23) {
+      res.send(false);
+      return;
+    }
+  }
+
   let isManual = req.body.isManual;
   
   if (isManual != true) {
@@ -58,7 +69,7 @@ router.post('/on', function (req, res, next) {
       bot.sendMessage(
         id,
         "Intrusion detected! At " +
-          new Date()
+          currentDate
             .toISOString()
             .replace(/T/, " ")
             .replace(/\..+/, "")
@@ -111,6 +122,20 @@ router.get("/sound", function(req, res, next) {
 router.post("/sound", function(req, res, next) {
   chosenSound = req.body.fileName;
   res.send("Ok");
+});
+
+router.post("/day-enable", function(req, res, next) {
+  isDayEnabled = true;
+  res.send("Ok");
+});
+
+router.post("/day-disable", function(req, res, next) {
+  isDayEnabled = false;
+  res.send("Ok");
+});
+
+router.get("/day-enabled", function(req, res, next) {
+  res.send(isDayEnabled);
 });
 
 module.exports = router;

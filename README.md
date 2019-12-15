@@ -6,3 +6,4 @@ Server routes:
 `POST <address>:3001/alarm/disable` -> disable the alarm<br>
 `GET <address>:3001/alarm/sounds` -> return list of available sounds<br>
 `POST <address>:3001/alarm/sound` -> change sound to one available on the list. Requires Content-Type: application/json with body of format { "fileName":"name-from-the-list" }<br>
+`GET <address>:3001/alarm/sound` -> return lthe chosen sound <br>

@@ -5,7 +5,6 @@ var alarm = false;
 var timestamp = Date.now();
 var isAlarmActive = true;
 
-/* GET users listing. */
 router.get('/', function(req, res, next) {
 
   if (!isAlarmActive) {

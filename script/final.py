@@ -8,10 +8,12 @@ import pandas as pd
 import os
 import librosa
 import time
+import requests
 
 fileName = "recognition.wav"
 modelName = "converted_model5.tflite"
 timeoutThresholdMs = 750
+serverAddress = "http://localhost:3001"
 
 
 def current_milli_time(): return int(round(time.time() * 1000))
@@ -80,3 +82,5 @@ while True:
     takeInput()
     output_data = analyzeInput()
     print(output_data)
+    if (output_data[0, 1] > 0.6):
+        requests.post(url= serverAddress + "/alarm/on")

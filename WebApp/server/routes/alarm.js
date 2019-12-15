@@ -8,7 +8,7 @@ var isAlarmActive = true;
 /* GET users listing. */
 router.get('/', function(req, res, next) {
 
-  if (isAlarmActive) {
+  if (!isAlarmActive) {
     res.send(false);
     return;
   }

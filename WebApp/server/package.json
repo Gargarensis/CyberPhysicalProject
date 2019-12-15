@@ -13,6 +13,7 @@
     "http-errors": "~1.6.3",
     "jade": "~1.11.0",
     "morgan": "~1.9.1",
+    "node-telegram-bot-api": "^0.40.0",
     "play-sound": "^1.1.3"
   }
 }

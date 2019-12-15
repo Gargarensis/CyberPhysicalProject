@@ -8,6 +8,34 @@ var isAlarmActive = true;
 var chosenSound = "cane.mp3";
 var player = require("play-sound")((opts = {}));
 var audio = undefined;
+var TelegramBot = require("node-telegram-bot-api");
+var fs = require("fs");
+var path = require("path");
+
+var token;
+var botUserList = [];
+
+try {
+  token = fs.readFileSync(path.join(__dirname, "../token.txt"), "utf8");
+  let chatList = path.join(__dirname, "../chat_list.txt");
+  if (fs.existsSync(chatList)) {
+    botUserList = JSON.parse(fs.readFileSync(chatList, "utf8"));
+  }
+} catch (err) {
+  token = "your-token";
+}
+
+const bot = new TelegramBot(token, { polling: true });
+
+bot.on("message", msg => {
+  if (msg.text == "/start") {
+    botUserList.push(msg.chat.id);
+    fs.writeFileSync(
+      path.join(__dirname, "chat_list.txt"),
+      JSON.stringify(botUserList)
+    );
+  }
+});
 
 router.get('/', function(req, res, next) {
   if (Date.now() - timestamp > 20000) {
@@ -21,6 +49,17 @@ router.post('/on', function (req, res, next) {
   if (!isAlarmActive) {
     res.send(false);
     return;
+  }
+
+  for (let id of botUserList) {
+    bot.sendMessage(
+      id,
+      "Intrusion detected! At " +
+        new Date()
+          .toISOString()
+          .replace(/T/, " ")
+          .replace(/\..+/, "")
+    );
   }
 
   alarm = true;

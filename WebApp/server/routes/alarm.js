@@ -51,7 +51,7 @@ router.post("/enable", function(req, res, next) {
   res.send("Ok");
 });
 
-router.getst("/enabled", function(req, res, next) {
+router.get("/enabled", function(req, res, next) {
   res.send(isAlarmActive);
 });
 

@@ -8,3 +8,17 @@
 	color: #686868 !important;
 	float: right;
 }
+
+.song {
+	font-size: 14px !important;
+}
+
+@media(max-width: 767px) {
+	.appStatus {
+		font-size: 16px !important;
+	}
+
+	.song {
+		font-size: 10px !important;
+	}
+}

@@ -16,7 +16,7 @@ export const SongsList = ({
 			             mobile={6}>
 				<Segment compact className={[styles.statusLabel, styles.appStatus].join(' ')}>
 					<div>
-						Songs
+						Alarms
 					</div>
 				</Segment>
 			</Grid.Column>

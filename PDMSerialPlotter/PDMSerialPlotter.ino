@@ -43,7 +43,7 @@ void loop() {
     // print samples to the serial monitor or plotter
     for (int i = 0; i < samplesRead; i++) {
       short item = sampleBuffer[i];
-      if (abs(item) > 20) {
+      if (abs(item) > 30) {
         Serial.println(item);
       }
     }

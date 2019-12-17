@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button, Checkbox, Container, Grid, Label, Segment } from 'semantic-ui-react'
+import { Checkbox, Grid, Segment } from 'semantic-ui-react'
 
 import styles from './Common.module.css';
 
@@ -12,16 +12,16 @@ export const SystemStatus = ({
 		      columns={2}>
 			<Grid.Column computer={4}
 			             tablet={6}
-			             mobile={8}>
+			             mobile={6}>
 				<Segment compact className={[styles.statusLabel, styles.appStatus].join(' ')}>
 					<div>
 						System Status
 					</div>
 				</Segment>
 			</Grid.Column>
-			<Grid.Column computer={4}
+			<Grid.Column computer={6}
 			             tablet={6}
-			             mobile={8}>
+			             mobile={10}>
 				<Segment compact className={styles.appStatus}>
 					<Checkbox toggle
 					          checked={status}

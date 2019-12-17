@@ -1,5 +1,5 @@
 import React from 'react'
-import { Container, Header } from 'semantic-ui-react'
+import { Header } from 'semantic-ui-react'
 import styles from './AppHeader.module.css';
 
 export const AppHeader= () => (

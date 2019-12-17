@@ -1,13 +1,12 @@
 import React from 'react'
-import { Button, Grid, Segment } from 'semantic-ui-react'
+import { Checkbox, Grid, Segment } from 'semantic-ui-react'
 
 import styles from './Common.module.css';
 
-export const AlarmStatus = ({
-	                            status,
-	                            sysStatus,
-	                            setStatus
-                            }) => (
+export const Schedule = ({
+	                             status,
+	                             setStatus
+                             }) => (
 	<div>
 		<Grid centered
 		      columns={2}>
@@ -16,7 +15,7 @@ export const AlarmStatus = ({
 			             mobile={6}>
 				<Segment compact className={[styles.statusLabel, styles.appStatus].join(' ')}>
 					<div>
-						Alarm Status
+						Automatic Schedule
 					</div>
 				</Segment>
 			</Grid.Column>
@@ -24,14 +23,14 @@ export const AlarmStatus = ({
 			             tablet={6}
 			             mobile={10}>
 				<Segment compact className={styles.appStatus}>
-					<Button circular
-					        color={sysStatus? status ? "red" : "green" : "grey"}
-					        disabled={!sysStatus}
-					        icon={status ? "alarm" : "alarm mute"}
-					        onClick={setStatus}/>
+					<Checkbox toggle
+					          checked={status}
+					          label={status ? "ON" : "OFF"}
+					          onChange={setStatus}
+					/>
 				</Segment>
 			</Grid.Column>
-			
+		
 		</Grid>
 	</div>
 );

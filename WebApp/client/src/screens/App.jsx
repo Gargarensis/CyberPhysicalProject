@@ -91,8 +91,8 @@ class App extends Component {
 	}
 	
 	setScheduleStatus(event, data) {
-		axios.post(url+`${data.checked ? "day-enable" : "day-disable"}`, {}).then((res) => {
-			this.setState({ schStatus: data.checked });
+		axios.post(url+`${!data.checked ? "day-enable" : "day-disable"}`, {}).then((res) => {
+			this.setState({ schStatus: !data.checked });
 		});
 	}
 	

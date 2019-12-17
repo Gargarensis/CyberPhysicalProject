@@ -24,8 +24,8 @@ export const Schedule = ({
 			             mobile={10}>
 				<Segment compact className={styles.appStatus}>
 					<Checkbox toggle
-					          checked={status}
-					          label={status ? "ON" : "OFF"}
+					          checked={!status}
+					          label={!status ? "ON" : "OFF"}
 					          onChange={setStatus}
 					/>
 				</Segment>

@@ -56,7 +56,7 @@ class App extends Component {
 			}
 		});
 		
-		alarm.poll(2000).get((res) => {
+		alarm.poll(1000).get((res) => {
 			if ( res.hasOwnProperty("data") && res.data !== this.state.alStatus ) {
 				this.setState({ alStatus: res.data });
 			} else if ( res.status > 399 ) {

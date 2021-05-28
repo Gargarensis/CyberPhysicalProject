@@ -2026,6 +2026,13 @@ aws4@^1.8.0:
   resolved "https://registry.yarnpkg.com/aws4/-/aws4-1.9.0.tgz#24390e6ad61386b0a747265754d2a17219de862c"
   integrity sha512-Uvq6hVe90D0B2WEnUqtdgY1bATGz3mw33nH9Y+dmA+w5DHvUmBgkr5rM/KCHpCsiFNRUfokW/szpPPgMK2hm4A==
 
+axios-request-handler@^1.0.4:
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/axios-request-handler/-/axios-request-handler-1.0.4.tgz#a378644757ddad298c34ad7196a1a9e639876bdb"
+  integrity sha512-GTtPy7R8iTzaC+hHzMJtmPKrHV64kazvt74jOFIJZFVB+6FY6G9ExKe/EjfhY/2z7cO1b1+c6Y569oYdllsYQw==
+  dependencies:
+    axios "^0.19.0"
+
 axios@^0.19.0:
   version "0.19.0"
   resolved "https://registry.yarnpkg.com/axios/-/axios-0.19.0.tgz#8e09bff3d9122e133f7b8101c8fbdd00ed3d2ab8"
@@ -3508,9 +3515,9 @@ dns-equal@^1.0.0:
   integrity sha1-s55/HabrCnW6nBcySzR1PEfgZU0=
 
 dns-packet@^1.3.1:
-  version "1.3.1"
-  resolved "https://registry.yarnpkg.com/dns-packet/-/dns-packet-1.3.1.tgz#12aa426981075be500b910eedcd0b47dd7deda5a"
-  integrity sha512-0UxfQkMhYAUaZI+xrNZOz/as5KgDU0M/fQ9b6SpkyLbk3GEswDi6PADJVaYJradtRVsRIlF1zLyOodbcTCDzUg==
+  version "1.3.4"
+  resolved "https://registry.yarnpkg.com/dns-packet/-/dns-packet-1.3.4.tgz#e3455065824a2507ba886c55a89963bb107dec6f"
+  integrity sha512-BQ6F4vycLXBvdrJZ6S3gZewt6rcrks9KBgM9vrhW+knGRqc8uEdT7fuCwloc7nny5xNoMJ17HGH0R/6fpo8ECA==
   dependencies:
     ip "^1.1.0"
     safe-buffer "^5.0.1"
@@ -8885,9 +8892,9 @@ safe-buffer@5.1.2, safe-buffer@~5.1.0, safe-buffer@~5.1.1:
   integrity sha512-Gd2UZBJDkXlY7GbJxfsE8/nvKkUEU1G38c1siN6QP6a9PT9MmHB8GnpscSmMJSoF8LOIrt8ud/wPtojys4G6+g==
 
 safe-buffer@>=5.1.0, safe-buffer@^5.0.1, safe-buffer@^5.1.0, safe-buffer@^5.1.1, safe-buffer@^5.1.2, safe-buffer@~5.2.0:
-  version "5.2.0"
-  resolved "https://registry.yarnpkg.com/safe-buffer/-/safe-buffer-5.2.0.tgz#b74daec49b1148f88c64b68d49b1e815c1f2f519"
-  integrity sha512-fZEwUGbVl7kouZs1jCdMLdt95hdIv0ZeHg6L7qPeciMZhZ+/gdesW4wgTARkrFWEpspjEATAzUGPG8N2jJiwbg==
+  version "5.2.1"
+  resolved "https://registry.yarnpkg.com/safe-buffer/-/safe-buffer-5.2.1.tgz#1eaf9fa9bdb1fdd4ec75f58f9cdb4e6b7827eec6"
+  integrity sha512-rp3So07KcdmmKbGvgaNxQSJr7bGVSVk5S9Eq1F+ppbRo70+YeaDxkw5Dd8NPN+GD6bjnYm2VuPuCXmpuYvmCXQ==
 
 safe-regex@^1.1.0:
   version "1.1.0"
